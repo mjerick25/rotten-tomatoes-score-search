@@ -1,10 +1,21 @@
 import re
 import urllib2
 from bs4 import BeautifulSoup
+
+def find_media():
+    media_type = raw_input('Are you asking about a movie or tv show? ')
+    if (media_type.upper() == MOVIE):
+        url_type = '/m/'
+    elif (media_type.upper() == TV SHOW or media_type.upper() == TV):
+        url_type = '/tv/
+    else:
+        print("I dont undertand, can you say that again?")
+        find_media()
+#this creates a variable that will help create the url
  
-movie = raw_input('Enter the movie: ') #retrieves the movie from the user
-movie = str(movie).replace(' ', '_') #puts movie in format so it_looks_like_this
-url = 'http://rottentomatoes.com/m/' + movie #creates url for movie
+media = raw_input('Enter the movie/tv show: ') #retrieves the media name from the user
+media = str(media).replace(' ', '_') #puts media in format so it_looks_like_this
+url = 'http://rottentomatoes.com' + url_type + media #creates url for media
  
 try:
     urllib2.urlopen(url)
